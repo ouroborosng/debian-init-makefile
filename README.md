@@ -2,7 +2,8 @@
 
 
 ![Automation](https://img.shields.io/badge/Automation-100%25-brightgreen)
-![GitHub repo size](https://img.shields.io/github/repo-size/your-username/debian-init-makefile)
+![GitHub repo size](https://img.shields.io/github/repo-size/ouroborosng/debian-init-makefile)
+![GitHub issues](https://img.shields.io/github/issues/ouroborosng/debian-init-makefile)
 ![Debian Supported](https://img.shields.io/badge/OS-Debian-blue?logo=debian)
 ![Shell Script](https://img.shields.io/badge/Shell-Bash-4EAA25?logo=gnu-bash&logoColor=white)
 ![Makefile](https://img.shields.io/badge/Build-Makefile-brightgreen)
