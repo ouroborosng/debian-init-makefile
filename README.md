@@ -1,5 +1,12 @@
 # Debian Init Makefile Project
 
+
+![Automation](https://img.shields.io/badge/Automation-100%25-brightgreen)
+![GitHub repo size](https://img.shields.io/github/repo-size/your-username/debian-init-makefile)
+![Debian Supported](https://img.shields.io/badge/OS-Debian-blue?logo=debian)
+![Shell Script](https://img.shields.io/badge/Shell-Bash-4EAA25?logo=gnu-bash&logoColor=white)
+![Makefile](https://img.shields.io/badge/Build-Makefile-brightgreen)
+
 This project provides an automated setup for configuring a Debian-based system using a `Makefile` and modular shell scripts. It includes tasks such as system updates, security hardening, and application installation.
 
 ## Installation and Usage
