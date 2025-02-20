@@ -26,8 +26,8 @@ configure_fail2ban:
 	else echo "configure_fail2ban.sh has already been executed. Skipping..."; fi
 
 configure_firewall:
-	@if [ -z "$(ICMP_TRUSTED_IPV4)" ]; then echo "Error: ICMP_TRUSTED_IPV4 is not set. Please provide a valid subnet (e.g., make configure_firewall ICMP_TRUSTED_IPV4=192.168.1.0/24)"; exit 1; fi
-	@if [ -z "$(ICMP_TRUSTED_IPV6)" ]; then echo "Error: ICMP_TRUSTED_IPV6 is not set. Please provide a valid subnet (e.g., make configure_firewall ICMP_TRUSTED_IPV6=fc00::/7)"; exit 1; fi
+	@if [ -z "$(TRUSTED_IPV4_CIDR)" ]; then echo "Error: TRUSTED_IPV4_CIDR is not set. Please provide a valid subnet (e.g., make configure_firewall TRUSTED_IPV4_CIDR=192.168.1.0/24)"; exit 1; fi
+	@if [ -z "$(TRUSTED_IPV6_CIDR)" ]; then echo "Error: TRUSTED_IPV6_CIDR is not set. Please provide a valid subnet (e.g., make configure_firewall TRUSTED_IPV6_CIDR=fc00::/7)"; exit 1; fi
 	@if [ ! -f $(STAMP_DIR)/configure_firewall ]; then echo "Executing configure_firewall.sh..."; bash ./modules/configure_security/configure_firewall.sh; touch $(STAMP_DIR)/configure_firewall; \
 	else echo "configure_firewall.sh has already been executed. Skipping..."; fi
 

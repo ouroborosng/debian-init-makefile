@@ -14,8 +14,8 @@ This project provides an automated setup for configuring a Debian-based system u
 
 ### Prerequisites
 Ensure the following environment variables are set before running `make all`:
-- `ICMP_TRUSTED_IPV4`: Define a trusted IPv4 subnet (e.g., `192.168.1.0/24`)
-- `ICMP_TRUSTED_IPV6`: Define a trusted IPv6 subnet (e.g., `fc00::/7`)
+- `TRUSTED_IPV4_CIDR`: Define a trusted IPv4 subnet (e.g., `192.168.1.0/24`)
+- `TRUSTED_IPV6_CIDR`: Define a trusted IPv6 subnet (e.g., `fc00::/7`)
 
 If these variables are not set, the Makefile execution will halt with an error message.
 
@@ -36,7 +36,7 @@ If these variables are not set, the Makefile execution will halt with an error m
 To execute the full setup, run the following command with the required variables:
 
 ```sh
-make all ICMP_TRUSTED_IPV4=192.168.1.0/24 ICMP_TRUSTED_IPV6=fc00::/7
+make all TRUSTED_IPV4_CIDR=192.168.1.0/24 TRUSTED_IPV6_CIDR=fc00::/7
 ```
 
 ### Cleaning Up
