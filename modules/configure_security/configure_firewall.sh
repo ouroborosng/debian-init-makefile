@@ -41,16 +41,16 @@ table inet firewall {
     chain dhcp_trusted {
         # Outbound DHCP traffic (client requests):
         # DHCP clients initiate requests with a source IP of 0.0.0.0 (or ::0 for IPv6).
-        $ These packets are inherently trusted and can be accepted directly.
+        # These packets are inherently trusted and can be accepted directly.
 
-        ip protocol udp udp sport 68 udp dport 67 jump accept
-        ip6 nexthdr udp udp sport 546 udp dport 547 jump accept
-        
+        ip protocol udp udp sport 68 udp dport 67 accept
+        ip6 nexthdr udp udp sport 546 udp dport 547 accept
+
         # Inbound DHCP traffic (server responses):
         # DHCP servers reply with packets using a valid source IP (e.g., from port 67 for IPv4,
         # from port 547 for IPv6).  Since these responses could potentially be spoofed,
         # they are routed to the "trusted_ips" chain to verify that the source IP falls within the allowed CIDR(s).
-        
+
         ip protocol udp udp sport 67 udp dport 68 jump trusted_ips
         ip6 nexthdr udp udp sport 547 udp dport 546 jump trusted_ips
     }
