@@ -6,7 +6,7 @@ systemctl enable nftables
 systemctl start nftables
 
 echo "Setting up advanced nftables rules..."
-
+modprobe nf_conntrack
 nft flush ruleset
 
 cat <<EOF > /etc/nftables.conf
@@ -38,9 +38,8 @@ table inet firewall {
         # Allow specified public services
         jump services_public
 
-        # Log and drop all other packets
-        log prefix "NFT-DROP: " group 0
-        drop
+        # Log all dropped packets
+        log prefix "Unauthorized_Access" flags all;
     }
 
     # Forward chain: Block all forwarded traffic by default
