@@ -14,6 +14,11 @@ system_update:
 	@if [ ! -f $(STAMP_DIR)/system_update ]; then echo "Executing system_update.sh..."; bash ./modules/system_update.sh; touch $(STAMP_DIR)/system_update; \
 	else echo "system_update.sh has already been executed. Skipping..."; fi
 
+## Network Configuration
+update_hostname:
+	@echo "Executing update_hostname.sh..."
+	bash ./modules/configure_network/update_hostname.sh "$(NEW_HOSTNAME)" "$(NEW_DOMAIN)"
+
 ## Security Configuration
 configure_security: configure_apparmor configure_fail2ban configure_firewall configure_system_hardening configure_unattended_upgrades disable_services
 
@@ -94,4 +99,4 @@ clean:
 	@echo "Cleaning temporary files..."
 	rm -rf $(STAMP_DIR)
 
-.PHONY: all init system_update clean configure_security install_security_tools secure_system disable_services
+.PHONY: all init system_update clean update_hostname configure_security install_security_tools secure_system disable_services
