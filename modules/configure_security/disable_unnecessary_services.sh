@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "Checking and disabling unnecessary services..."
+echo "🎯 Checking and disabling unnecessary services..."
 SERVICES=("telnet" "ftp" "rsh-server" "rlogin" "rexec")
 
 for SERVICE in "${SERVICES[@]}"; do
@@ -12,4 +12,4 @@ for SERVICE in "${SERVICES[@]}"; do
     fi
 done
 
-echo "All unnecessary services have been checked and disabled."
+echo "✅ All unnecessary services have been checked and disabled."

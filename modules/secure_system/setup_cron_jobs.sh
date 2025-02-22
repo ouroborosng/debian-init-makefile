@@ -1,19 +1,19 @@
 #!/bin/bash
 set -e
 
-echo "Setting up automated vulnerability remediation and security scans..."
+echo "🎯 Setting up automated vulnerability remediation and security scans..."
 
 cat <<EOF > /etc/cron.daily/vulnerability-scan
 #!/bin/bash
 set -e
-echo "Running debsecan to check for known vulnerabilities..."
+echo "🎯 Running debsecan to check for known vulnerabilities..."
 debsecan --suite=\$(lsb_release -sc) --only-fixed > /var/log/debsecan-report.txt
 
 if grep -q "CVE" /var/log/debsecan-report.txt; then
-    echo "[WARNING] Vulnerabilities detected! Running unattended-upgrades to fix known issues..."
+    echo "⚠️ Vulnerabilities detected! Running unattended-upgrades to fix known issues..."
     unattended-upgrades -d
 else
-    echo "No vulnerabilities detected."
+    echo "ℹ️ No vulnerabilities detected."
 fi
 EOF
 
@@ -27,4 +27,4 @@ EOF
 
 chmod +x /etc/cron.daily/security-scan
 
-echo "Cron jobs for automated security scans and vulnerability remediation have been set up."
+echo "✅ Cron jobs for automated security scans and vulnerability remediation have been set up."

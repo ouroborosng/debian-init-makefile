@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "Installing and configuring Fail2Ban..."
+echo "🎯 Installing and configuring Fail2Ban..."
 apt install -y fail2ban
 
 cat <<EOF > /etc/fail2ban/jail.local
@@ -19,4 +19,4 @@ EOF
 systemctl restart fail2ban
 systemctl enable fail2ban
 
-echo "Fail2Ban configuration completed."
+echo "✅ Fail2Ban configuration completed."

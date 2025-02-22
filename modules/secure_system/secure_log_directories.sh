@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "Securing log directories..."
+echo "🎯 Securing log directories..."
 SENSITIVE_LOGS=(
     "/var/log/secure"
     "/var/log/auth.log"
@@ -17,4 +17,4 @@ for LOG in "${SENSITIVE_LOGS[@]}"; do
     fi
 done
 
-echo "Log directory permissions have been secured."
+echo "✅ Log directory permissions have been secured."

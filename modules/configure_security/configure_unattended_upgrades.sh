@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "Installing and configuring unattended-upgrades..."
+echo "🎯 Installing and configuring unattended-upgrades..."
 apt install -y unattended-upgrades apt-listchanges
 
 cat <<EOF > /etc/apt/apt.conf.d/20auto-upgrades
@@ -20,4 +20,4 @@ Unattended-Upgrade::Automatic-Reboot "true";
 Unattended-Upgrade::Automatic-Reboot-Time "02:00";
 EOF
 
-echo "Unattended-upgrades configuration completed."
+echo "✅ Unattended-upgrades configuration completed."

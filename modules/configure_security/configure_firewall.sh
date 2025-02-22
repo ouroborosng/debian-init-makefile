@@ -1,24 +1,24 @@
 #!/bin/bash
 set -e
 
-echo "Enabling & Starting nftables..."
+echo "🎯 Enabling & Starting nftables..."
 systemctl enable nftables
 systemctl start nftables
 
-echo "Setting up advanced nftables rules..."
+echo "🎯 Setting up advanced nftables rules..."
 
 # Check if /usr/sbin is already in $PATH
 if ! echo "$PATH" | grep -q "/usr/sbin"; then
     # Check if ~/.bashrc already contains the export line
     if ! grep -qxF 'export PATH=$PATH:/usr/sbin' ~/.bashrc; then
         echo 'export PATH=$PATH:/usr/sbin' >> ~/.bashrc
-        echo "Added /usr/sbin to PATH in ~/.bashrc"
+        echo "✅ Added /usr/sbin to PATH in ~/.bashrc"
     else
-        echo "/usr/sbin is already defined in ~/.bashrc"
+        echo "ℹ️ /usr/sbin is already defined in ~/.bashrc"
     fi
     source ~/.bashrc
 else
-    echo "/usr/sbin is already in \$PATH"
+    echo "ℹ️ /usr/sbin is already in \$PATH"
 fi
 modprobe nf_conntrack
 nft flush ruleset
@@ -98,4 +98,4 @@ EOF
 
 systemctl restart nftables
 
-echo "nftables configuration applied successfully."
+echo "✅ nftables configuration applied successfully."
