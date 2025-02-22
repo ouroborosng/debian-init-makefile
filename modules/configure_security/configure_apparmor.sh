@@ -1,7 +1,8 @@
 #!/bin/bash
 set -e
 
-echo "🎯 Configuring AppArmor..."
+echo "🎯 Installing apparmor-utils and configuring AppArmor..."
+apt install apparmor-utils -y
 if command -v apparmor_status &>/dev/null; then
     systemctl enable apparmor
     systemctl start apparmor
