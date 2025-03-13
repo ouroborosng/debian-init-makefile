@@ -19,7 +19,6 @@ EOF
 
 chmod +x /etc/cron.daily/vulnerability-scan
 
- 
 cat <<EOF > /etc/cron.daily/system-update
 #!/bin/bash
 set -e
@@ -28,10 +27,6 @@ apt update >> /var/log/system-update.log 2>&1
 EOF
 
 chmod +x /etc/cron.daily/system-update
-
- cat <<EOF > /etc/cron.daily/security-scan
- #!/bin/bash
- clamscan -r --bell -i / >> /var/log/clamav-daily-scan.log
 
 cat <<EOF > /etc/cron.daily/security-scan
 #!/bin/bash
