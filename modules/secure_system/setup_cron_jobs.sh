@@ -30,7 +30,8 @@ chmod +x /etc/cron.daily/system-update
 
 cat <<EOF > /etc/cron.daily/security-scan
 #!/bin/bash
-clamscan -r --bell -i / >> /var/log/clamav-daily-scan.log
+clamscan -r -i / >> /var/log/clamav-daily-scan.log
+lynis audit system --quiet --logfile /var/log/lynis-security.log
 logwatch --output file --filename /var/log/logwatch-daily-report.txt --detail high
 EOF
 
